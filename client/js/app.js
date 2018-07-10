@@ -4,10 +4,11 @@ var phonecatApp = angular.module('FoodHung', []);
 phonecatApp.controller('resturantApp', function resturantApp($scope) {
   
   $scope.submit = function () { 
-      console.log($scope.inputText)
+      console.log('This is a test')
    }
   
-  $scope.bookResults = [
-    
+  $scope. = [
+    {'book'},
+    {}
   ];
 });
