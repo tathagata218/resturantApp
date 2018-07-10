@@ -13,14 +13,15 @@
     <h1>Find Your Resturant Types</h1>
     <input ng-model="inputText" name="text" type="text"/>
 
-    <button ng-click="submit">Find your Resturant</button>
+    <button ng-click="submit()">Find your Resturant</button>
 
     <hr>
 
     <div >
     <ul>
-        <li >
-            
+        <li ng-repeat="resturant in resturants">
+            <p>{{resturant.resturant}}</p>
+            <p>{{resturant.location}}</p>
         </li>
     </ul>    
     

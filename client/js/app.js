@@ -2,13 +2,17 @@ var phonecatApp = angular.module('FoodHung', []);
 
 // Define the `PhoneListController` controller on the `phonecatApp` module
 phonecatApp.controller('resturantApp', function resturantApp($scope) {
-  
+  $scope.value = []
   $scope.submit = function () { 
-      console.log('This is a test')
+      console.log($scope.inputText)
    }
   
-  $scope. = [
-    {'book'},
-    {}
+  $scope.resturants= [
+    {'resturant' : 'Applebeas',
+      'location' : 'Houston'  },
+    {'resturant' : 'Chimes',
+    'location' : 'Houston'},
+    {'resturant' : 'Starbucks',
+    'location' : 'Houston'  }
   ];
 });
