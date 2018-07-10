@@ -7,7 +7,7 @@ phonecatApp.controller('bookResults', function PhoneListController($scope) {
       console.log($scope.text)
    }
   
-  $scope.phones = [
+  $scope.bookResults = [
     
   ];
 });
