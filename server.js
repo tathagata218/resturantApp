@@ -14,6 +14,9 @@ app.get('/',( req,res ) => {
 })
 
 
+app.post('/data',(req,res)=> {
+    console.log(req.body)
+})
 
 app.listen(PORT, () => {
     console.log(`You are Lisining to PORT ${PORT}`)
