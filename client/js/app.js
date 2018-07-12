@@ -5,7 +5,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   $scope.value = []
   $scope.submit = function () { 
       console.log($scope.inputText)
-      let data = $scope.inputText
+      let data = {'input' : $scope.inputText}
     
     $http.post('/data',data).then(()=>{console.log('it Worked')},()=>{'sorry'})
     }

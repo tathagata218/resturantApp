@@ -16,6 +16,7 @@ app.get('/',( req,res ) => {
 
 app.post('/data',(req,res)=> {
     console.log(req.body)
+    res.status(200)
 })
 
 app.listen(PORT, () => {
