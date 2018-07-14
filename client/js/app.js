@@ -6,13 +6,15 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   $scope.submit = function () {
     let test = 'delis';
     console.log(test)
-    
+    $http.post('/data',test).then(()=>console.log('data is send to the backend'))
      
     }
 
   $scope.clear = function (param) {
     $http.post('/data',data)
-    }
+    
+  }
+
   $scope.resturants= [
     {'resturant' : 'Applebeas',
       'location' : 'Houston'  },
