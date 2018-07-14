@@ -3,6 +3,8 @@ const app = express()
 const PORT = 8080
 const bodyParser = require('body-parser')
 const path = require('path')
+const request = require("request");
+const APIkey = require('./keys/key')
 const data = [];
 
 app.use(bodyParser.json());
@@ -16,10 +18,25 @@ app.get('/',( req,res ) => {
 
 app.post('/data',(req,res)=> {
     console.log(req.body)
-    if(req.body) { 
-        data.push(req.body)
-    }
-    res.status(200)
+    let inputData = req.body.data
+    
+    let options = { method: 'GET',
+        url: `https://api.yelp.com/v3/autocomplete/${inputData}`,
+        qs: { text: 'gums' },
+        headers: 
+        {  'Cache-Control': 'no-cache',
+            Authorization: `Bearer ${APIkey.api}`,
+            Token: APIkey.api } };
+
+    request(options, function (error, response, body) {
+                if (error) throw new Error(error);
+
+                    res.send(body).sendStatus(200);
+            });
+
+
+
+    
 })
 
 app.listen(PORT, () => {

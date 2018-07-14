@@ -4,9 +4,9 @@ var phonecatApp = angular.module('FoodHung', []);
 phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   $scope.value = []
   $scope.submit = function () {
-    let test = 'delis';
+    let test = {data : $scope.inputText};
     console.log(test)
-    $http.post('/data',test).then(()=>console.log('data is send to the backend'))
+    $http.post('/data',test)
      
     }
 
