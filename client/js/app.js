@@ -37,10 +37,17 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
       accessToken: leaflet
           }).addTo(mymap);
 
+
+      for(let i = 0; i < data.bussiness; i++) {
+        var marker = L.marker([data.bussiness[i].coordinates.latitude, data.bussiness[i].coordinates.longitude]).addTo(mymap);
+
+        
+      
+      } 
     
     }) }
 
-    var marker = L.marker([lat, long]).addTo(mymap);
+    
 
   
   $scope.clear = function (param) {
