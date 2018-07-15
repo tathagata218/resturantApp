@@ -21,7 +21,7 @@ app.post('/data',(req,res)=> {
     let inputData = req.body.data
     
     let options = { method: 'GET',
-        url: `https://api.yelp.com/v3/autocomplete/${inputData}`,
+        url: `https://api.yelp.com/v3/businesses/search?term=${inputData}&latitude=37.786882&longitude=-122.399972`,
         qs: { text: 'gums' },
         headers: 
         {  'Cache-Control': 'no-cache',
@@ -30,8 +30,8 @@ app.post('/data',(req,res)=> {
 
     request(options, function (error, response, body) {
                 if (error) throw new Error(error);
-
-                    res.send(body).sendStatus(200);
+                    console.log(body)
+                    res.json(body);
             });
 
 
