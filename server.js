@@ -21,7 +21,7 @@ app.post('/data',(req,res)=> {
     let inputData = req.body.data
     
     let options = { method: 'GET',
-        url: `https://api.yelp.com/v3/businesses/search?term=${inputData}&latitude=37.786882&longitude=-122.399972`,
+        url: `https://api.yelp.com/v3/businesses/search?term=${inputData}&latitude=${req.body.lat}&longitude=${req.body.long}`,
         qs: { text: 'gums' },
         headers: 
         {  'Cache-Control': 'no-cache',

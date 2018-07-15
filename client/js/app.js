@@ -23,14 +23,14 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
                 long : long,
                 lat : lat};
     console.log(test)
-    $http.post('/data',test)
+    $http.post('/data',test).success((data)=>{
+      console.log(data)})
      
     }
 
   $scope.clear = function (param) {
-    $http.post('/data',data).then((data)=>{
-      console.log(data)
-    })
+    $http.post('/data',data)
+    
     
   }
 
