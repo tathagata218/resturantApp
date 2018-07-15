@@ -24,7 +24,13 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
                 lat : lat};
     console.log(test)
     $http.post('/data',test).success((data)=>{
-      console.log(data)})
+      console.log(JSON.parse(data))
+    
+      $scope.resturants= [
+        data];
+    
+    
+    })
      
     }
 
@@ -34,12 +40,5 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     
   }
 
-  $scope.resturants= [
-    {'resturant' : 'Applebeas',
-      'location' : 'Houston'  },
-    {'resturant' : 'Chimes',
-    'location' : 'Houston'},
-    {'resturant' : 'Starbucks',
-    'location' : 'Houston'  }
-  ];
+  
 });
