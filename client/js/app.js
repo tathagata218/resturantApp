@@ -12,7 +12,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     
   }
 
-   getLocation()
+  getLocation()
   function Position(pos){
     lat = pos.coords.latitude
     long = pos.coords.longitude 
@@ -27,11 +27,13 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
       console.log(JSON.parse(data))
     
       $scope.places= [
-        data];
+        data.businesses];
     
     
     })
+
      
+    
     }
 
   $scope.clear = function (param) {
