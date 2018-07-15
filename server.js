@@ -19,7 +19,7 @@ app.get('/',( req,res ) => {
 app.post('/data',(req,res)=> {
     console.log(req.body)
     let inputData = req.body.data
-    
+    let leafletID = APIkey.api2
     let options = { method: 'GET',
         url: `https://api.yelp.com/v3/businesses/search?term=${inputData}&latitude=${req.body.lat}&longitude=${req.body.long}`,
         qs: { text: 'gums' },
@@ -31,7 +31,7 @@ app.post('/data',(req,res)=> {
     request(options, function (error, response, body) {
                 if (error) throw new Error(error);
                     console.log(body)
-                    res.json(body);
+                    res.json({data : body , leaflet : leafletID});
             });
 
 
