@@ -28,7 +28,9 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     }
 
   $scope.clear = function (param) {
-    $http.post('/data',data)
+    $http.post('/data',data).then((data)=>{
+      console.log(data)
+    })
     
   }
 
