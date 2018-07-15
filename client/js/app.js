@@ -26,7 +26,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     $http.post('/data',test).success((data)=>{
       console.log(JSON.parse(data))
     
-      $scope.resturants= [
+      $scope.places= [
         data];
     
     
