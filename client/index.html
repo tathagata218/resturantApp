@@ -36,7 +36,8 @@
 
 
     <div class='container'>
-    
+    <select ng-model="selectedName" ng-options="x for x in names">
+        
     <input ng-model="inputText" name="text" type="text"/>
     <button ng-click="submit()">Find your Resturant</button>
     <button ng-click="clearAll()">Clear Search Data</button>
@@ -44,7 +45,7 @@
     <hr>
     
     </div>
-    
+
     <div id ='displayMap'>
         
         <div id='mapid' style=' margin:  0 auto; width:800px; height : 450px'></div>
