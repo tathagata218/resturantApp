@@ -18,7 +18,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   function Position(pos){
     lat = pos.coords.latitude
     long = pos.coords.longitude
-    mymap = L.map('mapid').setView([lat, long], 13); 
+    mymap = L.map('mapid').setView([lat, long], 11); 
   }
   
   
@@ -31,6 +31,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     $http.post('/data',test).success((data)=>{
       console.log(data)
       let info = JSON.parse(data.data)
+      console.log (info.businesses)
       
       L.tileLayer(`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${data.leaflet}`, {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -40,9 +41,10 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
           }).addTo(mymap);
 
 
-      for(let i = 0; i < data.bussiness; i++) {
-        
-         L.marker([info.bussiness[i].coordinates.latitude, info.bussiness[i].coordinates.longitude]).addTo(mymap);
+      for(let i = 0; i < info.businesses.length; i++) {
+       
+         L.marker([info.businesses[i].coordinates.latitude, info.businesses[i].coordinates.longitude]).addTo(mymap)
+          .bindpopup(`<h3>Name : ${info.businesses[i].name}</h3><br/><p>Phone : ${info.businesses[i].phone}</p>`)
 
         
       
