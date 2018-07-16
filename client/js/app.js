@@ -56,8 +56,12 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
 
   
   $scope.clearAll = function (param) {
-    L.markers().clearLayers();
-    }
+    mymap.eachLayer(function (layer) {
+      mymap.removeLayer(layer);
+      $scope.inputText = ' '
+  });
+  
+  }
 
     
 
