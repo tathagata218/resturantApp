@@ -30,7 +30,7 @@ app.post('/data',(req,res)=> {
 
     request(options, function (error, response, body) {
                 if (error) throw new Error(error);
-                    console.log(body)
+                    //console.log(body)
                     res.json({data : body , leaflet : leafletID});
             });
 
