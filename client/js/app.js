@@ -55,8 +55,8 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     
 
   
-  $scope.clear = function (param) {
-    $http.post('/data',data)
+  $scope.clearAll = function (param) {
+    L.markers().clearLayers();
     }
 
     
