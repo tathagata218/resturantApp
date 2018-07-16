@@ -60,7 +60,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   });
   
   }
-  $scope.names = ["Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe"];
+  $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans"];
     
 
   
