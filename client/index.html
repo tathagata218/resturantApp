@@ -36,7 +36,14 @@
 
 
     <div class='container'>
-    <select ng-model="selectedName" ng-options="x for x in names">
+        <div class="row">
+            <div class="col">
+                    <select ng-model="selectedName" ng-options="x for x in names">
+            </div>    
+            
+
+        </div>
+    
     <div class="row">
         <div class="col">
                 <input ng-model="inputText" name="text" type="text"/>
