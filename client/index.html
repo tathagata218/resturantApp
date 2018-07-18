@@ -38,26 +38,17 @@
     <div class='container'>
         <div class="row">
             <div class="col">
-                    <select ng-model="selectedName" ng-options="x for x in names">
+                <select ng-model="selectedName" ng-options="x for x in names">
             </div>    
-            
-
-        </div>
-    
-    <div class="row">
-        <div class="col">
-                <input ng-model="inputText" name="text" type="text"/>
-        </div>
-    </div>
-    <div class="row">
             <div class="col">
-                    <button ng-click="submit()">Find your Resturant</button>
+                <input ng-model="inputText" name="text" type="text"/>
             </div>
-    </div>
-        <div class="row">
-                <div class="col">
-                        <button ng-click="clearAll()">Clear Search Data</button>
-                </div>
+            <div class="col">
+                <button ng-click="submit()">Find your Resturant</button>
+            </div>
+            <div class="col">
+                <button ng-click="clearAll()">Clear Search Data</button>
+            </div>
 
         </div>
         
