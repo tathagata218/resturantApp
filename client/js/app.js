@@ -1,7 +1,12 @@
 const phonecatApp = angular.module('FoodHung', []);
 
 phonecatApp.config(function ($routeProvider) { 
-  
+
+  $routeProvider
+  .when('/map',{
+    templateUrl : '../templates/map',
+    controller : 'resturantApp'
+  })
  })
 
 
