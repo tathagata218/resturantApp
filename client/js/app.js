@@ -4,7 +4,7 @@ phonecatApp.config(function ($routeProvider) {
 
   $routeProvider
   .when('/map',{
-    templateUrl : '../templates/map',
+    templateUrl : '../templates/map.htm',
     controller : 'resturantApp'
   })
  })
