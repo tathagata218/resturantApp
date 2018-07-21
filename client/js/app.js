@@ -1,10 +1,10 @@
-const phonecatApp = angular.module('FoodHung', []);
+const phonecatApp = angular.module('FoodHung', ['ngRoute']);
 
 phonecatApp.config(function ($routeProvider) { 
 
   $routeProvider
   .when('/map',{
-    templateUrl : '../templates/map.htm',
+    templateUrl : 'templates/map.htm',
     controller : 'resturantApp'
   })
  })
