@@ -1,4 +1,10 @@
-var phonecatApp = angular.module('FoodHung', []);
+const phonecatApp = angular.module('FoodHung', []);
+
+phonecatApp.config(function ($routeProvider) { 
+  
+ })
+
+
 
 // Define the `PhoneListController` controller on the `phonecatApp` module
 phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
