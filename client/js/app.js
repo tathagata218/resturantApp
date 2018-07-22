@@ -6,10 +6,14 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   let lat = null
   let long = null
   let mymap = null
+
   function getLocation () {
     if(navigator.geolocation)
     { 
-      //console.log(navigator.geolocation.getCurrentPosition(Position)) 
+      navigator.geolocation.getCurrentPosition(Position)
+    }
+    else{
+      alert('Your Browser Dose not Support Geolocation')
     }
     
   }
@@ -20,6 +24,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     lat = pos.coords.latitude
     long = pos.coords.longitude
     mymap = L.map('mapid').setView([lat, long], 11); 
+    console.log(lat,long)
   }
   
   
@@ -29,7 +34,9 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
                 long : long,
                 lat : lat
               };
-    console.log(test)
+    
+              console.log(test)
+
     $http.post('/data',test).success((data)=>{
       console.log(data)
       let info = JSON.parse(data.data)
