@@ -1,7 +1,7 @@
-const phonecatApp = angular.module('FoodHung', ['ngComponentRouter']);
+const phonecatApp = angular.module('FoodHung', []);
 
 
-phonecatApp.controller('resturantApp', function resturantApp($scope,$http,$locationProvider) {
+phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   
   let lat = null
   let long = null
@@ -9,7 +9,8 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http,$locat
   function getLocation () {
     if(navigator.geolocation)
     { 
-      console.log(navigator.geolocation.getCurrentPosition(Position)) }
+      //console.log(navigator.geolocation.getCurrentPosition(Position)) 
+    }
     
   }
   
@@ -26,7 +27,8 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http,$locat
   $scope.submit = function () {
     let test = {data : $scope.inputText,
                 long : long,
-                lat : lat};
+                lat : lat
+              };
     console.log(test)
     $http.post('/data',test).success((data)=>{
       console.log(data)
@@ -64,10 +66,12 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http,$locat
   $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans", "Boston", "San Fransisco"];
     
   $scope.map = function () {
+    
     console.log('you are clicking the maps')
     }
 
   $scope.resurants = function () {
+    
     console.log('you are clicking the ')
   }
   
