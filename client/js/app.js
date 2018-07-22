@@ -1,19 +1,7 @@
 const phonecatApp = angular.module('FoodHung', ['ngComponentRouter']);
 
-phonecatApp.config(function ($routeProvider,$locationProvider) { 
 
-$locationProvider.html5mode(true)
-
-$routeProvider
-  .when('/map',{
-    templateUrl : 'templates/map.htm'
-  })
- })
-
-
-
-// Define the `PhoneListController` controller on the `phonecatApp` module
-phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
+phonecatApp.controller('resturantApp', function resturantApp($scope,$http,$locationProvider) {
   
   let lat = null
   let long = null
@@ -75,6 +63,12 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   
   $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans", "Boston", "San Fransisco"];
     
+  $scope.map = function () {
+    console.log('you are clicking the maps')
+    }
 
+  $scope.resurants = function () {
+    console.log('you are clicking the ')
+  }
   
 });
