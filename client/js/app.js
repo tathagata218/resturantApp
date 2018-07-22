@@ -1,11 +1,12 @@
-const phonecatApp = angular.module('FoodHung', ['ngRoute']);
+const phonecatApp = angular.module('FoodHung', ['ngComponentRouter']);
 
-phonecatApp.config(function ($routeProvider) { 
+phonecatApp.config(function ($routeProvider,$locationProvider) { 
 
-  $routeProvider
+$locationProvider.html5mode(true)
+
+$routeProvider
   .when('/map',{
-    templateUrl : 'templates/map.htm',
-    controller : 'resturantApp'
+    templateUrl : 'templates/map.htm'
   })
  })
 
@@ -71,6 +72,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   });
   
   }
+  
   $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans", "Boston", "San Fransisco"];
     
 

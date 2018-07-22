@@ -39,6 +39,9 @@ app.post('/data',(req,res)=> {
     
 })
 
+app.get('/map',(res,req)=>{
+    
+});
 
 
 app.listen(PORT, () => {
