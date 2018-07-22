@@ -65,14 +65,6 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   
   $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans", "Boston", "San Fransisco"];
     
-  $scope.map = function () {
-    
-    console.log('you are clicking the maps')
-    }
-
-  $scope.resurants = function () {
-    
-    console.log('you are clicking the ')
-  }
+  
   
 });
