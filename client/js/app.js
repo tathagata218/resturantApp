@@ -53,7 +53,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
       for(let i = 0; i < info.businesses.length; i++) {
        
          L.marker([info.businesses[i].coordinates.latitude, info.businesses[i].coordinates.longitude]).addTo(mymap)
-          .bindPopup(`<h3>Name : ${info.businesses[i].name}</h3><hr/><p>Phone : ${info.businesses[i].phone}</p>`).openPopup();
+          .bindPopup(`<h6>Name : ${info.businesses[i].name}</h6><hr/><p>Phone : ${info.businesses[i].display_phone}</p>`).openPopup();
 
         } 
     
