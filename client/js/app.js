@@ -66,6 +66,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     mymap.eachLayer(function (layer) {
       mymap.removeLayer(layer);
       $scope.inputText = ' '
+      $scope.getData = []
   });
   
   }

@@ -64,10 +64,11 @@
                 
                 <div ng-repeat="data in getData">
                     <div class="card" style="width: auto;">
-                        <img class="card-img-top" src="{{data.image_url}}" alt="Card image cap">
+                        <img class="card-img-top" style="width : auto; height : 250px" src="{{data.image_url}}" alt="Card image cap">
                         <div class="card-body">
                         <h5 class="card-title">{{data.name}}</h5>
-                       
+                        <p>Address : {{data.location.display_address[0]+', '+data.location.display_address[1]+', '+data.location.display_address[2]}}</p>
+                        <p>Phone : {{data.display_phone}}</p>
                         </div>
                   </div>
                 </div>
