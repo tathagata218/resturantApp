@@ -61,9 +61,10 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
 
     
   $scope.popupInfo = function ($event) {
-    let lat = $event.currentTarget.attributes.lat.nodeValue;
-    let long = $event.currentTarget.attributes.long.nodeValue
-    
+    let lat = parseInt($event.currentTarget.attributes.lat.nodeValue);
+    let long = parseInt($event.currentTarget.attributes.long.nodeValue);
+      
+      L.popup().setLatLng([lat,long])
   } 
   
   $scope.clearAll = function (param) {
