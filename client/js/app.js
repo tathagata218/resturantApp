@@ -61,10 +61,13 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
 
     
   $scope.popupInfo = function ($event) {
-    let lat = parseInt($event.currentTarget.attributes.lat.nodeValue);
-    let long = parseInt($event.currentTarget.attributes.long.nodeValue);
-      
-      L.popup().setLatLng([lat,long])
+    let lat = $event.currentTarget.attributes.lat.nodeValue;
+    let long = $event.currentTarget.attributes.long.nodeValue;
+    let resturantName = $event.currentTarget.children[1].children[0].innerHTML
+    let retuPhone = $event.currentTarget.children[1].children[2].innerHTML 
+    console.log(lat,long)
+
+      L.marker([lat,long]).addTo(mymap).bindPopup(`<p>Name : ${resturantName}<br/>${retuPhone}`).openPopup()
   } 
   
   $scope.clearAll = function (param) {
