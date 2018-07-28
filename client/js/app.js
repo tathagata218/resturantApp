@@ -53,7 +53,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
       for(let i = 0; i < info.businesses.length; i++) {
        
          L.marker([info.businesses[i].coordinates.latitude, info.businesses[i].coordinates.longitude]).addTo(mymap)
-          .bindPopup(`<p>Name : ${info.businesses[i].name}</p><hr/><p>Phone : ${info.businesses[i].display_phone}</p>`).openPopup();
+          .bindPopup(`<p>Name : ${info.businesses[i].name}</p><hr/><p>Phone : ${info.businesses[i].display_phone}</p>`)
 
         } 
     
@@ -65,9 +65,9 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     let long = $event.currentTarget.attributes.long.nodeValue;
     let resturantName = $event.currentTarget.children[1].children[0].innerHTML
     let retuPhone = $event.currentTarget.children[1].children[2].innerHTML 
-    console.log(lat,long)
+    
 
-      L.marker([lat,long]).addTo(mymap).bindPopup(`<p>Name : ${resturantName}<br/>${retuPhone}`).openPopup()
+      L.marker([lat,long]).addTo(mymap).bindPopup(`<p>Name : ${resturantName}</p><hr/><p>${retuPhone}</p>`).openPopup()
   } 
   
   $scope.clearAll = function (param) {
