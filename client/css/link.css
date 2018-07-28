@@ -19,7 +19,6 @@ body {
 } 
 
 #repeatData  {
-    border-right: 2px solid gainsboro;
     overflow: scroll;
     height : 450px;
     margin-right : 5px;
