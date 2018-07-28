@@ -6,10 +6,18 @@ body {
 
 #footer {
     background-color: lightblue;
-    padding : 40px;
-    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    margin-top: 10px
 }
 
 #mainContent {
     margin: 10 0 10 0;
+
+} 
+
+#repeatData  {
+    
 } 
