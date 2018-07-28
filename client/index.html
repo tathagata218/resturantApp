@@ -64,7 +64,7 @@
                 
                 <div > 
                 <div ng-repeat="data in getData">
-                    <div class="card" style="width: auto;">
+                    <div class="card" style="width: auto;" ng-click="popupInfo()">
                         <img class="card-img-top" style="width : auto; height : 250px" src="{{data.image_url}}" alt="Card image cap">
                         <div class="card-body">
                         <h5 class="card-title">{{data.name}}</h5>

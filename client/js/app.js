@@ -60,7 +60,9 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     }) }
 
     
-
+  $scope.popupInfo = function ($event) {
+    console.log($event.currentTarget)
+  } 
   
   $scope.clearAll = function (param) {
     mymap.eachLayer(function (layer) {
