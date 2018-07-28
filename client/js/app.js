@@ -61,7 +61,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
 
     
   $scope.popupInfo = function ($event) {
-    console.log($event.currentTarget)
+    console.log($event.target.attributes, $event.target.attributes)
   } 
   
   $scope.clearAll = function (param) {

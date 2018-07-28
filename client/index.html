@@ -64,7 +64,7 @@
                 
                 <div > 
                 <div ng-repeat="data in getData">
-                    <div class="card" style="width: auto;" ng-click="popupInfo()">
+                    <div class="card" style="width: auto;" lat='{{data.coordinates.latitude}}' long='{{data.coordinates.longitude}}' ng-click="popupInfo($event)">
                         <img class="card-img-top" style="width : auto; height : 250px" src="{{data.image_url}}" alt="Card image cap">
                         <div class="card-body">
                         <h5 class="card-title">{{data.name}}</h5>
