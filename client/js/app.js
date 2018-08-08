@@ -82,10 +82,12 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans", "Boston", "San Fransisco"];
     
   $scope.saveRest = function ($event) { 
-    let lat = $event.currentTarget.attributes.lat.nodeValue;
-    let long = $event.currentTarget.attributes.long.nodeValue;
-    let resturantName = $event.currentTarget.children[1].children[0].innerHTML
-    let retuPhone = $event.currentTarget.children[1].children[2].innerHTML 
+    // let lat = $event.currentTarget.attributes.lat.nodeValue;
+    // let long = $event.currentTarget.attributes.long.nodeValue;
+    // let resturantName = $event.currentTarget.children[1].children[0].innerHTML
+    // let retuPhone = $event.currentTarget.children[1].children[2].innerHTML 
+
+    console.log($event)
    }
   
 });

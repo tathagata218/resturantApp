@@ -48,7 +48,9 @@
             <div class="col">
                 <button class="btn btn-danger" ng-click="clearAll()">Clear</button>
             </div>
-
+            <div class="col">
+                <link class="btn btn-success" ng-click="" href="/savedRest" value="Saved Resturants" />
+            </div>
         </div>
         
         
@@ -70,7 +72,7 @@
                         <h5 class="card-title">{{data.name}}</h5>
                         <p>Address : {{data.location.display_address[0]+', '+data.location.display_address[1]+', '+data.location.display_address[2]}}</p>
                         <p>Phone : {{data.display_phone}}</p>
-                        <button ng-click="saveRest($event)" class='class="btn btn-info btn-sm" saveThis'> Save Resturant </button>
+                        <button ng-click="saveRest($event)" class='class="btn btn-info btn-sm saveThis'> Save Resturant </button>
                         </div>
                   </div>
                 </div>
