@@ -39,7 +39,7 @@ app.post('/data',(req,res)=> {
     
 })
 
-app.get('/map',(res,req)=>{
+app.get('/savedRest',(res,req)=>{
     
 });
 
