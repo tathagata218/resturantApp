@@ -70,7 +70,7 @@
                         <h5 class="card-title">{{data.name}}</h5>
                         <p>Address : {{data.location.display_address[0]+', '+data.location.display_address[1]+', '+data.location.display_address[2]}}</p>
                         <p>Phone : {{data.display_phone}}</p>
-                        <button class='class="btn btn-info btn-sm" saveThis'> Save Resturant </button>
+                        <button ng-click="saveRest($event)" class='class="btn btn-info btn-sm" saveThis'> Save Resturant </button>
                         </div>
                   </div>
                 </div>
@@ -89,7 +89,7 @@
     </div>
 </section>
     <footer id='footer'>
-        <h4>&copy Tathagata Das 2018</h4>
+        <h6>&copy Tathagata Das 2018</h6>
     </footer>
            
 

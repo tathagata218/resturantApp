@@ -81,6 +81,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   
   $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans", "Boston", "San Fransisco"];
     
-  
-  
-});
+  $scope.saveRest = function ($event) {
+    console.log ()
+  } 
+}
