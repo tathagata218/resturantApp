@@ -4,6 +4,7 @@ const phonecatApp = angular.module('FoodHung', ['ngRoute', 'otherModule']);
 phonecatApp.config( function ($routeProvider) { 
   $routeProvider
   .when('/test',{ templateUrl: 'test.html' })
+  .when('/',{ templateUrl: 'index.html' })
   .otherwise({ redirectTo: '/' })
  });
 
