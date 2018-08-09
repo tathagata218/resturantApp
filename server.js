@@ -39,15 +39,14 @@ app.post('/data',(req,res)=> {
     
 })
 
-app.get('/savedRest',(res,req)=>{
-    
+app.get('/savedRest',(req,res)=>{
+    res.json({ 'message' : 'You are in the Saved Resturant Page'})
 });
 
 
 app.listen(PORT, () => {
     console.log(`You are Lisining to PORT ${PORT}`)
 })
-
 
 
 
