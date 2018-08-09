@@ -1,4 +1,12 @@
-const phonecatApp = angular.module('FoodHung', []);
+const phonecatApp = angular.module('FoodHung', ['ngRoute', 'otherModule']);
+
+
+phonecatApp.config( function ($routeProvider) { 
+  $routeProvider
+  .when('/test',{ templateUrl: 'test.html' })
+  .otherwise({ redirectTo: '/' })
+ });
+
 
 
 phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
@@ -89,5 +97,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
 
     console.log($event)
    }
+
+
   
 });
