@@ -1,12 +1,16 @@
-const phonecatApp = angular.module('FoodHung', ['ngRoute', 'otherModule']);
+const phonecatApp = angular.module('FoodHung', ['ngRoute']);
 
 
-phonecatApp.config( function ($routeProvider) { 
+phonecatApp.config(function ($routeProvider,$locationProvider) {
+  $locationProvider.html5Mode({ enable :true});
   $routeProvider
-  .when('/test',{ templateUrl: 'test.html' })
-  .when('/',{ templateUrl: 'index.html' })
-  .otherwise({ redirectTo: '/' })
- });
+  .when('/', {
+  templateUrl : 'index.html'
+  })
+  .when('/test', {
+  templateUrl : ' <h1> test </h1>'
+  });
+})
 
 
 
