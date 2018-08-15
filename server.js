@@ -40,7 +40,7 @@ app.post('/data',(req,res)=> {
 })
 
 app.get('/savedRest',(req,res)=>{
-    res.json({ 'message' : 'You are in the Saved Resturant Page'})
+    res.sendFile(path.join(__dirname, "client/index.html"));
 });
 
 

@@ -1,16 +1,9 @@
+
+
 const phonecatApp = angular.module('FoodHung', ['ngRoute']);
 
 
-phonecatApp.config(function ($routeProvider,$locationProvider) {
-  $locationProvider.html5Mode({ enable :true});
-  $routeProvider
-  .when('/', {
-  templateUrl : 'index.html'
-  })
-  .when('/test', {
-  templateUrl : ' <h1> test </h1>'
-  });
-})
+
 
 
 
@@ -105,4 +98,4 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
 
 
   
-});
+  });
