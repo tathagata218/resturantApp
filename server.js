@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
-const PORT = 8080
+const PORT = process.env.PORT ||  8080
 const bodyParser = require('body-parser')
 const path = require('path')
 const request = require("request");
 const APIkey = require('./keys/key')
 const mongoose = require('mongoose')
 const data = [];
+const restData = require('./model/restData')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -43,6 +44,16 @@ app.post('/data',(req,res)=> {
 app.get('/savedRest',(req,res)=>{
     res.sendFile(path.join(__dirname, "client/savedRest.html"));
 });
+
+
+mongoose.Promise = global.Promise
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ResturantDB',()=>{
+    console.log(`You are conncted to the Mongo DB`)
+})
+
+
+
 
 
 app.listen(PORT, () => {
