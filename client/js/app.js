@@ -1,10 +1,6 @@
 
 
-const phonecatApp = angular.module('FoodHung', ['ngRoute']);
-
-
-
-
+const phonecatApp = angular.module('myApp',[]);
 
 
 phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
@@ -93,7 +89,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     // let resturantName = $event.currentTarget.children[1].children[0].innerHTML
     // let retuPhone = $event.currentTarget.children[1].children[2].innerHTML 
 
-    console.log($event)
+    console.log($event.currentTarget)
    }
 
 

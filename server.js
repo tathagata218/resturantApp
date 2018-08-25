@@ -19,7 +19,7 @@ app.get('/',( req,res ) => {
 
 
 app.post('/data',(req,res)=> {
-    //console.log(req.body)
+    console.log(req.body)
     let inputData = req.body.data
     let leafletID = APIkey.api2
     let options = { method: 'GET',
@@ -45,12 +45,24 @@ app.get('/savedRest',(req,res)=>{
     res.sendFile(path.join(__dirname, "client/savedRest.html"));
 });
 
+app.post('/saveData',(req,res) => {
+console.log (req.body)
+res.sendStatus(200)
+})
 
+app.post('/deleteData',(req,res) => {
+
+    console.log (req.body.id)
+    res.sendStatus(200)
+})
+
+// This is connecting to monogoDB
 mongoose.Promise = global.Promise
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ResturantDB',()=>{
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ResturantDB', { useNewUrlParser: true },()=>{
     console.log(`You are conncted to the Mongo DB`)
 })
+// This is connecting to monogoDB
 
 
 
