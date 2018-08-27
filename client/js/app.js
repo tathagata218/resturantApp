@@ -84,15 +84,20 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans", "Boston", "San Fransisco"];
     
   $scope.saveRest = function ($event) { 
-    // let lat = $event.currentTarget.attributes.lat.nodeValue;
-    // let long = $event.currentTarget.attributes.long.nodeValue;
-    // let resturantName = $event.currentTarget.children[1].children[0].innerHTML
-    // let retuPhone = $event.currentTarget.children[1].children[2].innerHTML 
-    let savedData = { info : 'This is a test'}
-    http.post('/saveData',savedData).success(()=>{
-      console.log('The data has been sent')
-    })
-    console.log($event.currentTarget)
+    let saveData = { restName : $event.currentTarget.attributes[1].value,
+                    restAddres : $event.currentTarget.attributes[2].value,
+                    restPhone : $event.currentTarget.attributes[3].value,
+                    restCoords : $event.currentTarget.attributes[4].value} 
+
+    let tester = new RegExp(/^\(\d{3}\)\s\d{3}-\d{4}/ig);
+    let check = tester.test(saveData.restPhone)
+    if(check) {
+      $http.post('/saveData',savedData).success(()=>{
+        console.log('The data has been sent')
+      })
+    }
+    
+    console.log($event.currentTarget.attributes)
    }
 
 
