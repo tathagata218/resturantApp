@@ -88,7 +88,10 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     // let long = $event.currentTarget.attributes.long.nodeValue;
     // let resturantName = $event.currentTarget.children[1].children[0].innerHTML
     // let retuPhone = $event.currentTarget.children[1].children[2].innerHTML 
-
+    let savedData = { info : 'This is a test'}
+    http.post('/saveData',savedData).success(()=>{
+      console.log('The data has been sent')
+    })
     console.log($event.currentTarget)
    }
 
