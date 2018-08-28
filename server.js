@@ -47,7 +47,7 @@ app.get('/savedRest',(req,res)=>{
 
 app.post('/saveData',(req,res) => {
     let tester = new RegExp(/^\(\d{3}\)\s\d{3}-\d{4}/ig);
-    let check = tester.test(saveData.restPhone)
+    let check = tester.test(req.body.restPhone)
     let data
     if(check) {
         data = {
