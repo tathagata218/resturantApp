@@ -88,11 +88,12 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
                     restAddres : $event.currentTarget.attributes[2].value,
                     restPhone : $event.currentTarget.attributes[3].value,
                     restCoords : $event.currentTarget.attributes[4].value} 
-
+    console.log(saveData)
     let tester = new RegExp(/^\(\d{3}\)\s\d{3}-\d{4}/ig);
     let check = tester.test(saveData.restPhone)
+    
     if(check) {
-      $http.post('/saveData',savedData).success(()=>{
+      $http.post('/saveData',saveData).success(()=>{
         console.log('The data has been sent')
       })
     }

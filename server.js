@@ -46,9 +46,27 @@ app.get('/savedRest',(req,res)=>{
 });
 
 app.post('/saveData',(req,res) => {
-    
+    let tester = new RegExp(/^\(\d{3}\)\s\d{3}-\d{4}/ig);
+    let check = tester.test(saveData.restPhone)
+    let data
+    if(check) {
+        data = {
+            restName : req.body.restName,
+            restAddress : req.body.restAddres,
+            restPhone : req.body.restPhone,
+            restCoords : req.body.restCoords    
+        }
+    }
+    restData.create({ 
+        resturantName : data.restName,
+        resturantAddress : data.restAddress,
+        resturantPhone : data.restPhone,
+        resturantCoords :data.restCoords},  
+        (err)=>{if (err){console.log(err)} else {res.sendStatus(200)} }
+    )
+
 console.log (req.body)
-res.sendStatus(200)
+
 })
 
 app.post('/deleteData',(req,res) => {
