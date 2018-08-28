@@ -42,11 +42,10 @@ app.post('/data',(req,res)=> {
 })
 
 app.get('/savedRest',(req,res)=>{
+    
+    res.sendFile(path.join(__dirname, "client/pages/savedRest.html"));
 
-    restData.find({}).then((data)=>{
-        res.json({data : data } ).sendFile(path.join(__dirname, "client/savedRest.html"));
-    })
-
+    
     
 });
 
@@ -78,6 +77,12 @@ app.post('/deleteData',(req,res) => {
 
     console.log (req.body.id)
     res.sendStatus(200)
+})
+
+app.get('/allData', (req,res)=> {
+    
+    res.sendStatus(200)
+
 })
 
 // This is connecting to monogoDB
