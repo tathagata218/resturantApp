@@ -42,7 +42,12 @@ app.post('/data',(req,res)=> {
 })
 
 app.get('/savedRest',(req,res)=>{
-    res.sendFile(path.join(__dirname, "client/savedRest.html"));
+
+    restData.find({}).then((data)=>{
+        res.json({data : data } ).sendFile(path.join(__dirname, "client/savedRest.html"));
+    })
+
+    
 });
 
 app.post('/saveData',(req,res) => {
