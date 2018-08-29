@@ -32,11 +32,11 @@
             <div class='container'>
                 <div class='row'>
                     <div class="col">
-                            <h4>These are all Saved Resturants</h4>
+                            <h4>Your Resturants</h4>
                             
                     </div>
                     <div class="col">
-                            <button><a href="/">Back to Home Page</a></button>
+                            <button class ='btn btn-primary'><a href="/" style="color:black"><i style="margin-right:5px" class="fas fa-home"></i> Back </a></button>
                     </div>
                         
                 </div>
@@ -49,25 +49,29 @@
     <hr/>
 
     <div class="container-fluid" >
-            <div ngIf="allArrData.length === 0"> 
-                <h4>Sorry you don't have any Resturants Left</h4>
+            <div ng-if="allArrData.length === 0"> 
+                <h4> <i class="far fa-frown"></i> Sorry you don't have any Resturants Left</h4>
             </div>
-            <div ng-repeat= "data in allArrData">
-                <div class="card" style="width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title">Resturant Name</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Resturant Address</h6>
-                        <p class="card-text">Resturant Phone Numbers</p>
-                        <a href="/deleteData" class="card-link">Delete Resturant</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+            <div ng-if="allArrData.length > 0">
+                    <div ng-repeat= "data in allArrData">
+                            <div class="card" style="width: 100%;" restID="{{data._id}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{data.resturantName}}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{data.resturantAddress}}</h6>
+                                    <p class="card-text">{{data.resturantPhone}}</p>
+                                    <a href="#" class="card-link"><i style="margin-right:5px" class="fas fa-location-arrow"></i>Website</a>
+                                    <a href="/deleteData" class="card-link" style="color: red"><i style="margin-right:5px" class="fas fa-trash"></i>Delete Resturant</a>
+                                    
+                                </div>
+                            </div>
+                        
+                        </div>
                 </div>
             
-            </div>
             
     </div>
 
-    <div ng-model="test">{{test}}</div>
+    
     
 </body>
 </html>

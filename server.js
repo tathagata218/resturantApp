@@ -86,7 +86,7 @@ app.get('/allData', (req,res)=> {
             res.json({data : data }).sendStatus(200)
         }
         else {
-            res.json({data : "There is No Resturant Saved" }).sendStatus(200)
+            res.json({data : [] }).sendStatus(200)
         }
         
 

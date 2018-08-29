@@ -7,8 +7,8 @@ secondPart.controller('displayResturants', function displayResturants($scope,$ht
     
 console.log('You are working here')
 $http.get('/allData').success((data)=>{
-    $scope.allArrData = data
-    $scope.test = data.data
-    console.log(data)
+    $scope.allArrData = data.data
+    //$scope.test = data.data
+    console.log(data.data)
 })
 })
