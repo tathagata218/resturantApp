@@ -90,7 +90,7 @@ app.get('/allData', (req,res)=> {
         }
         
 
-    })
+    }).catch((err)=>{console.log(err)})
     
 
 })
