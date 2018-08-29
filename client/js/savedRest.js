@@ -1,11 +1,13 @@
-// const secondPart = angular.module('savedPart',[]);
 
 
-// secondPart.controller('displayResturants', function displayResturants($scope,$http) {
-//     $scope.init = function() {
-//         console.log('the page has been loaded')
-//     }
-// })
+const secondPart = angular.module('savedPart',[]);
 
 
-console.log('You are in this')
+secondPart.controller('displayResturants', function displayResturants($scope,$http) {
+    
+console.log('You are working here')
+$http.get('/allData').success((data)=>{
+    $scope.test = data.data
+    console.log(data)
+})
+})

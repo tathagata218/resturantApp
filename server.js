@@ -81,7 +81,17 @@ app.post('/deleteData',(req,res) => {
 
 app.get('/allData', (req,res)=> {
     
-    res.sendStatus(200)
+    restData.find({}).then((data) => {
+        if(data.length > 0) {   
+            res.json({data : data }).sendStatus(200)
+        }
+        else {
+            res.json({data : "There is No Resturant Saved" }).sendStatus(200)
+        }
+        
+
+    })
+    
 
 })
 
