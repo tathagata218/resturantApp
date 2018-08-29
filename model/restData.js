@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
+//This is model information
 const restData = new Schema({
     resturantName : {type : String, require: true},
     resturantAddress : {type : String, require: true},
