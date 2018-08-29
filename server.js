@@ -83,10 +83,10 @@ app.get('/allData', (req,res)=> {
     
     restData.find({}).then((data) => {
         if(data.length > 0) {   
-            res.json({data : data }).sendStatus(200)
+            res.json({data : data })
         }
         else {
-            res.json({data : [] }).sendStatus(200)
+            res.json({data : [] })
         }
         
 
