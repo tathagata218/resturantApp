@@ -1,3 +1,4 @@
-node_modules
-keys
-model
+/node_modules
+/keys
+/model
+/server.js
