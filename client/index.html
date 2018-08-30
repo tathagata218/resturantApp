@@ -64,7 +64,9 @@
     
     <hr>
     <section id='mainContent'>   
-    <div class="container-fluid">
+        <div ng-if="getData.length === 0"> Your Resturants will be available here</div>
+        <div ng-if="getData.length > 0" class="container-fluid">
+    
         <div class="row">
             <div class="col" id='repeatData'>
                 
@@ -88,7 +90,7 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div ng-if="getData.length > 0" class="col">
                 
                 <div id ='displayMap'>
                     <div id='mapid' style=' width: auto; height : 450px'></div>

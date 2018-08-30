@@ -8,7 +8,9 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   let lat = null
   let long = null
   let mymap = null
-  
+
+  $scope.getData = []
+
   function getLocation () {
     if(navigator.geolocation)
     { 
@@ -32,18 +34,29 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   
 
   $scope.submit = function () {
-    let test = {data : $scope.inputText,
-                long : long,
-                lat : lat
-              };
+    if($scope.inputText.length > 0) {
+      getLocation()
+          }
+
+      
+      
     
-              console.log(test)
+
+      let test = {data : $scope.inputText,
+        long : long,
+        lat : lat
+      };
+
+      console.log(test)       
 
     $http.post('/data',test).success((data)=>{
       console.log(data)
       let info = JSON.parse(data.data)
       console.log (info.businesses)
       $scope.getData = info.businesses
+    
+
+      function forLoop () {
       L.tileLayer(`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${data.leaflet}`, {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
@@ -52,14 +65,28 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
           }).addTo(mymap);
 
 
-      for(let i = 0; i < info.businesses.length; i++) {
-       
-         L.marker([info.businesses[i].coordinates.latitude, info.businesses[i].coordinates.longitude]).addTo(mymap)
-          .bindPopup(`<p>Name : ${info.businesses[i].name}</p><hr/><p>Phone : ${info.businesses[i].display_phone}</p>`)
 
-        } 
+      
+        for(let i = 0; i < info.businesses.length; i++) {
+       
+          L.marker([info.businesses[i].coordinates.latitude, info.businesses[i].coordinates.longitude]).addTo(mymap)
+           .bindPopup(`<p>Name : ${info.businesses[i].name}</p><hr/><p>Phone : ${info.businesses[i].display_phone}</p>`)
+ 
+         }
+
+      }
+      
+      setTimeout(forLoop,2000)
+       
     
-    }) }
+    }
+  
+
+    ) 
+  
+
+  
+}
 
     
   $scope.popupInfo = function ($event) {
