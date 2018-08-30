@@ -36,7 +36,7 @@
                             
                     </div>
                     <div class="col">
-                            <button class ='btn btn-primary'><a href="/" style="color:black"><i style="margin-right:5px" class="fas fa-home"></i> Back </a></button>
+                            <a class ='btn btn-primary' href="/" style="color:black"><i style="margin-right:5px" class="fas fa-home"></i> Back </a>
                     </div>
                         
                 </div>
@@ -54,13 +54,13 @@
             </div>
             <div ng-if="allArrData.length > 0">
                     <div ng-repeat= "data in allArrData">
-                            <div class="card" style="width: 100%;" restID="{{data._id}}">
+                            <div class="card" style="width: 100%;"  >
                                 <div class="card-body">
                                     <h5 class="card-title">{{data.resturantName}}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{data.resturantAddress}}</h6>
                                     <p class="card-text">{{data.resturantPhone}}</p>
                                     <a href="#" class="card-link"><i style="margin-right:5px" class="fas fa-location-arrow"></i>Website</a>
-                                    <a href="/deleteData" class="card-link" style="color: red"><i style="margin-right:5px" class="fas fa-trash"></i>Delete Resturant</a>
+                                    <a href="#" ng-Click="delRest($event)" restID="{{data._id}}" class="card-link" style="color: red"><i style="margin-right:5px" class="fas fa-trash"></i>Delete Resturant</a>
                                     
                                 </div>
                             </div>
