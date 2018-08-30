@@ -75,7 +75,7 @@ console.log (req.body)
 
 app.post('/deleteData',(req,res) => {
 
-    console.log (req.body.id)
+    console.log (req.body)
     res.sendStatus(200)
 })
 

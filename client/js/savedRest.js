@@ -15,7 +15,7 @@ $http.get('/allData').success((data)=>{
 $scope.delRest = function ($event) {
     let dataID = $event.currentTarget.attributes[2].nodeValue
     console.log(dataID)
-    $http.post('/deleteData',dataID).success((data)=>{
+    $http.post('/deleteData',{data : dataID}).success((data)=>{
         console.log('Data has been sent')
     })
 }
