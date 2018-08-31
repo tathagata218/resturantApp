@@ -29,3 +29,7 @@ body {
     background-color: antiquewhite;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 } 
+
+#subDiv {
+    height: 400px;
+} 
