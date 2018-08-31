@@ -64,7 +64,16 @@
     
     <hr>
     <section id='mainContent'>   
-        <div id='subDiv' ng-if="getData.length === 0"> Your Resturants will be available here</div>
+        <div id='subDiv' ng-if="getData.length === 0"> 
+           <div>
+                <i style="margin-right : 10px" class="far fa-lemon"></i>
+                <i style="margin-right : 10px" class="fas fa-utensils"></i>
+                <i style="margin-right : 10px" class="fas fa-cookie-bite"></i>
+           </div>   
+           <div>
+                <h3>Your Resturants will be available here</h3>
+               </div>
+        </div>
         <div ng-if="getData.length > 0" class="container-fluid">
     
         <div class="row">

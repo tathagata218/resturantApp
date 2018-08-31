@@ -32,4 +32,10 @@ body {
 
 #subDiv {
     height: 400px;
+    width: 100%;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 } 
