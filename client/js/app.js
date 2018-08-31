@@ -5,9 +5,9 @@ const phonecatApp = angular.module('myApp',[]);
 
 phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   
-  let lat = null
-  let long = null
-  let mymap = null
+  var lat = null
+  var long = null
+  var mymap = null
 
   $scope.getData = []
 
@@ -27,22 +27,19 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   function Position(pos){
     lat = pos.coords.latitude
     long = pos.coords.longitude
-    mymap = L.map('mapid').setView([lat, long], 11); 
     console.log(lat,long)
   }
   
   
 
   $scope.submit = function () {
-    if($scope.inputText.length > 0) {
-      getLocation()
-          }
-
-      
-      
     
+    // if($scope.inputText.length > 0) {
+    //   //getLocation()
+    //       }
 
-      let test = {data : $scope.inputText,
+    let test = {
+        data : $scope.inputText,
         long : long,
         lat : lat
       };
@@ -50,34 +47,43 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
       console.log(test)       
 
     $http.post('/data',test).success((data)=>{
+      
       console.log(data)
-      let info = JSON.parse(data.data)
-      console.log (info.businesses)
-      $scope.getData = info.businesses
-    
 
-      function forLoop () {
-      L.tileLayer(`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${data.leaflet}`, {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
-      id: 'mapbox.streets',
-      accessToken: data.leaflet
-          }).addTo(mymap);
+      let info = JSON.parse(data.data)
+
+      
+        console.log (info.businesses)
+        $scope.getData = info.businesses
+        
+
+        function forLoop () {
+          
+          mymap = L.map('mapid').setView([lat, long], 11);
+
+          L.tileLayer(`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${data.leaflet}`, {
+          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: 'mapbox.streets',
+          accessToken: data.leaflet
+            }).addTo(mymap);
 
 
 
       
-        for(let i = 0; i < info.businesses.length; i++) {
+          for(let i = 0; i < info.businesses.length; i++) {
        
-          L.marker([info.businesses[i].coordinates.latitude, info.businesses[i].coordinates.longitude]).addTo(mymap)
-           .bindPopup(`<p>Name : ${info.businesses[i].name}</p><hr/><p>Phone : ${info.businesses[i].display_phone}</p>`)
+            L.marker([info.businesses[i].coordinates.latitude, info.businesses[i].coordinates.longitude]).addTo(mymap)
+              .bindPopup(`<p>Name : ${info.businesses[i].name}</p><hr/><p>Phone : ${info.businesses[i].display_phone}</p>`)
  
-         }
+          }
 
       }
       
-      setTimeout(forLoop,2000)
+        setTimeout(forLoop,2000)
        
+      
+      
     
     }
   

@@ -19,7 +19,7 @@ app.get('/',( req,res ) => {
 
 
 app.post('/data',(req,res)=> {
-    //console.log(req.body)
+    console.log(req.body)
     let inputData = req.body.data
     let leafletID = APIkey.api2
     let options = { method: 'GET',
