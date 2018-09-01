@@ -29,13 +29,13 @@
     <div id="saveRestheader" class='container-fluid'>   
         <div >
         
-            <div class='container'>
+            <div id='saHeCont' class='container'>
                 <div class='row'>
-                    <div style="text-align:center" class="col">
-                            <h4>Your Resturants</h4>
+                    <div style="text-align:center;margin-top: 40px;" class="col">
+                            <h4 style="font-size:45px; font-family: sans-serif;">Your Resturants</h4>
                             
                     </div>
-                    <div style="text-align:center" class="col">
+                    <div style="text-align:center; margin-top: 40px;" class="col">
                             <a class ='btn btn-primary' href="/" style="color:black"><i style="margin-right:5px" class="fas fa-home"></i> Back </a>
                     </div>
                         
@@ -60,7 +60,7 @@
                                     <h5 class="card-title">{{data.resturantName}}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{data.resturantAddress}}</h6>
                                     <p class="card-text">{{data.resturantPhone}}</p>
-                                    <a href="#" class="card-link"><i style="margin-right:5px" class="fas fa-location-arrow"></i>Website</a>
+                                    <a href="{{data.resturantURL}}" target="_blank" class="card-link"><i style="margin-right:5px" class="fas fa-location-arrow"></i>Website</a>
                                     <a href="#" ng-Click="delRest($event)" restID="{{data._id}}" class="card-link" style="color: red"><i style="margin-right:5px" class="fas fa-trash"></i>Delete Resturant</a>
                                     
                                 </div>

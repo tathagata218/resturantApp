@@ -50,6 +50,7 @@ app.get('/savedRest',(req,res)=>{
 });
 
 app.post('/saveData',(req,res) => {
+    console.log(req.body)
     let tester = new RegExp(/^\(\d{3}\)\s\d{3}-\d{4}/ig);
     let check = tester.test(req.body.restPhone)
     let data
@@ -58,14 +59,16 @@ app.post('/saveData',(req,res) => {
             restName : req.body.restName,
             restAddress : req.body.restAddres,
             restPhone : req.body.restPhone,
-            restCoords : req.body.restCoords    
+            restCoords : req.body.restCoords,
+            restURL : req.body.restURL    
         }
     }
     restData.create({ 
         resturantName : data.restName,
         resturantAddress : data.restAddress,
         resturantPhone : data.restPhone,
-        resturantCoords :data.restCoords},  
+        resturantCoords :data.restCoords,
+        resturantURL : data.restURL},  
         (err)=>{if (err){console.log(err)} else {res.sendStatus(200)} }
     )
 

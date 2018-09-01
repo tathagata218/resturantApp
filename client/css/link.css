@@ -5,13 +5,14 @@ body {
 } 
 
 #footer {
-    background-color: #347B98;
+    background-color: rgb(83, 182, 221);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100px;
     margin-top: 20px;
-    color : white
+    color : white;
+    border-top : 1px solid black 
 }
 
 #mainContent {
@@ -27,7 +28,12 @@ body {
 #saveRestheader {
     height : 150px;
     background-color: antiquewhite;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; */
 } 
 
 #subDiv {
@@ -39,3 +45,7 @@ body {
     justify-content: center;
     text-align: center;
 } 
+
+/* #saHeCont {
+    margin-top : 40px;
+}  */

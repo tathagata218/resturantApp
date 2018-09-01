@@ -80,7 +80,7 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
 
       }
       
-        setTimeout(forLoop,2000)
+        setTimeout(forLoop,1500)
        
       
       
@@ -116,11 +116,13 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
   
   $scope.names = [ "Your Location" , "Austin", "Houston", "Dallas", "Katy", "San Antonio", "Baton Rouge", "Monroe", "New Orleans", "Boston", "San Fransisco"];
     
-  $scope.saveRest = function ($event) { 
-    let saveData = { restName : $event.currentTarget.attributes[1].value,
-                    restAddres : $event.currentTarget.attributes[2].value,
-                    restPhone : $event.currentTarget.attributes[3].value,
-                    restCoords : $event.currentTarget.attributes[4].value} 
+  $scope.saveRest = function ($event) {
+    $scope.savedClick = true 
+    let saveData = { restName : $event.currentTarget.attributes[2].value,
+                    restAddres : $event.currentTarget.attributes[3].value,
+                    restPhone : $event.currentTarget.attributes[4].value,
+                    restCoords : $event.currentTarget.attributes[5].value,
+                    restURL : $event.currentTarget.attributes[1].value} 
     console.log(saveData)
     let tester = new RegExp(/^\(\d{3}\)\s\d{3}-\d{4}/ig);
     let check = tester.test(saveData.restPhone)

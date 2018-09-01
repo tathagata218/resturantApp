@@ -47,13 +47,13 @@
                 <input class="form-control" ng-model="inputText" name="text" type="text"/>
             </div>
             <div class="col">
-                <button class="btn btn-primary" ng-click="submit()"><span class="fas fa-search"></span> Find your Resturant</button>
+                <button class="btn btn-primary" ng-click="submit()"><span class="fas fa-search"></span> Find your Place</button>
             </div>
             <div class="col">
                 <button class="btn btn-danger" ng-click="clearAll()"><span class="fas fa-eraser"></span> Clear</button>
             </div>
             <div class="col">
-                <a class="btn btn-success" ng-click="" href="/savedRest"><span class="fas fa-utensils"></span>  Saved Resturants </a>
+                <a class="btn btn-success" ng-click="" href="/savedRest"><span class="fas fa-utensils"></span>  Saved Place </a>
             </div>
         </div>
         
@@ -90,7 +90,7 @@
                         
                         </div>
                         <div>
-                            <button ng-click="saveRest($event)" restName='{{data.name}}' restAdr='{{data.location.display_address[0] + data.location.display_address[1] + data.location.display_address[2]}}' restPhone='{{data.display_phone}}' restCoord='{{data.coordinates}}'  class='btn btn-info btn-sm saveThis'><span class="fas fa-save"></span>  Save Resturant </button>
+                            <button ng-click="saveRest($event)" restUrl='{{data.url}}' restName='{{data.name}}' restAdr='{{data.location.display_address[0] + data.location.display_address[1] + data.location.display_address[2]}}' restPhone='{{data.display_phone}}' restCoord='{{data.coordinates}}'  class='btn btn-info btn-sm saveThis'><i class="fas fa-save"></i>  Save  <i ng-if="savedClick === true" class="fas fa-check"></i></button>
                         </div>
                   </div>
                   <br>
