@@ -77,9 +77,17 @@ app.post('/saveData',(req,res) => {
 })
 
 app.post('/deleteData',(req,res) => {
+    let id = req.body.data
 
-    console.log (req.body)
-    res.sendStatus(200)
+    restData.findByIdAndRemove({id : id}).then((data)=>{
+        if(data.length > 0) {   
+            res.json({data : data })
+        }
+        else {
+            res.json({data : [] })
+        }
+    }).catch((err)=>{console.log(err)})
+
 })
 
 app.get('/allData', (req,res)=> {
