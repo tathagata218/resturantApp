@@ -72,7 +72,7 @@ app.post('/saveData',(req,res) => {
         (err)=>{if (err){console.log(err)} else {res.sendStatus(200)} }
     )
 
-console.log (req.body)
+//console.log (req.body)
 
 })
 
