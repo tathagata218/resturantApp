@@ -90,7 +90,7 @@
                         
                         </div>
                         <div>
-                            <button ng-click="saveRest($event)" restUrl='{{data.url}}' restName='{{data.name}}' restAdr='{{data.location.display_address[0] + data.location.display_address[1] + data.location.display_address[2]}}' restPhone='{{data.display_phone}}' restCoord='{{data.coordinates}}'  class='btn btn-info btn-sm saveThis'><i class="fas fa-save"></i>  Save  <i ng-if="savedClick === true" class="fas fa-check"></i></button>
+                            <button ng-click="saveRest($event)" restUrl='{{data.url}}' restName='{{data.name}}' restAdr='{{data.location.display_address[0] + data.location.display_address[1] + data.location.display_address[2]}}' restPhone='{{data.display_phone}}' restCoord='{{data.coordinates}}'  class='btn btn-info btn-sm saveThis'><i class="fas fa-save"></i>  Save  </button>
                         </div>
                   </div>
                   <br>
@@ -102,7 +102,7 @@
             <div class="col">
                 
                 <div id ='displayMap'>
-                    <div id='mapid' style=' width: auto; height : 450px'></div>
+                    <div id='mapid' style=' width: auto; height : 550px'></div>
                   </div>
             </div>
 

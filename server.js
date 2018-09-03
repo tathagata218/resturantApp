@@ -79,16 +79,22 @@ app.post('/saveData',(req,res) => {
 app.post('/deleteData',(req,res) => {
     let id = req.body.data
 
-    restData.findByIdAndRemove({id : id}).then((data)=>{
-        if(data.length > 0) {   
-            res.json({data : data })
-        }
-        else {
-            res.json({data : [] })
-        }
-    }).catch((err)=>{console.log(err)})
+    restData.findOneAndDelete({ _id: id }, ()=>{ 
+        
+        restData.find({}).then((data) => {
+            console.log(data)
+            if(data.length > 0) {   
+                res.json({data : data })
+            }
+            else {
+                res.json({data : [] })
+            }
+            
 
-})
+      }).catch((err)=>{console.log(err)})
+
+        })
+    })
 
 app.get('/allData', (req,res)=> {
     
@@ -121,7 +127,5 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ResturantDB', {
 app.listen(PORT, () => {
     console.log(`You are Lisining to PORT ${PORT}`)
 })
-
-
 
 
