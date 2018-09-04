@@ -8,6 +8,13 @@ const APIkey = require('./keys/key')
 const mongoose = require('mongoose')
 const data = [];
 const restData = require('./model/restData')
+const firebase = require('firebase')
+const firbaseui = require('firebaseui')
+const firbaseConfig = require('./keys/config')
+
+firebase.initializeApp(firbaseConfig)
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
