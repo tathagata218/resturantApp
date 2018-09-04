@@ -9,7 +9,7 @@ const mongoose = require('mongoose')
 const data = [];
 const restData = require('./model/restData')
 const firebase = require('firebase')
-const firbaseui = require('firebaseui')
+//const firbaseui = require('firebaseui')
 const firbaseConfig = require('./keys/config')
 
 firebase.initializeApp(firbaseConfig)
@@ -117,6 +117,11 @@ app.get('/allData', (req,res)=> {
     }).catch((err)=>{console.log(err)})
     
 
+})
+
+
+app.get('/login',(req,res)=>{
+    res.sendFile(path.join(__dirname, "client/pages/auth.html"));
 })
 
 // This is connecting to monogoDB
