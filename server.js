@@ -125,6 +125,11 @@ app.get('/login',(req,res)=>{
     res.sendFile(path.join(__dirname, "client/pages/auth.html"));
 })
 
+app.post('/auth',(req,res)=>{
+    console.log(req.body)
+    res.sendStatus(200)
+})
+
 // This is connecting to monogoDB
 mongoose.Promise = global.Promise
 

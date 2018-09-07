@@ -4,9 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault()
         let email = document.getElementById("emailInp").value
         let password = document.getElementById("passInp").value
+        let data = {
+            email : email,
+            pass : password
+        }
 
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", '/login', true);
+        xhr.open("POST", '/auth', true);
 
         //Send the proper header information along with the request
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -16,11 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('The data Has been sent')
             }
         }
-        xhr.send("foo=bar&lorem=ipsum"); 
+        xhr.send(JSON.stringify(data)); 
 
 
 
-        console.log(email,password)
+        
     })
     
     
