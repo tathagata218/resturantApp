@@ -11,6 +11,7 @@ const restData = require('./model/restData')
 const firebase = require('firebase')
 //const firbaseui = require('firebaseui')
 const firbaseConfig = require('./keys/config')
+const options = {index : false}
 
 firebase.initializeApp(firbaseConfig)
 
@@ -18,11 +19,13 @@ firebase.initializeApp(firbaseConfig)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static('client'));
+app.use(express.static('client',options));
 
 
 app.get('/',( req,res ) => {
-    res.sendFile(path.join(__dirname, "client/index.html"));
+    res.sendFile(path.join(__dirname, "client/pages/auth.html"));
+    //res.sendFile(path.join(__dirname, "client/index.html"));
+    
 })
 
 
@@ -121,13 +124,18 @@ app.get('/allData', (req,res)=> {
 })
 
 
-app.get('/login',(req,res)=>{
-    res.sendFile(path.join(__dirname, "client/pages/auth.html"));
+app.get('/homePage',(req,res)=>{
+    res.sendFile(path.join(__dirname, "client/index.html"));
 })
 
 app.post('/auth',(req,res)=>{
     console.log(req.body)
-    res.sendStatus(200)
+    let data  = req.body
+    //res.redirect('./homePage')
+        res.sendFile(path.join(__dirname, "client/index.html")).sendStatus(200);
+    
+
+    
 })
 
 // This is connecting to monogoDB
