@@ -20,10 +20,12 @@ firebase.initializeApp(firbaseConfig)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('client',options));
+//app.use(express.static('client'))
 
 
 app.get('/',( req,res ) => {
-    res.sendFile(path.join(__dirname, "client/pages/auth.html"));
+    res.redirect('/homePage')
+    //res.sendFile(path.join(__dirname, "client/pages/auth.html"));
     //res.sendFile(path.join(__dirname, "client/index.html"));
     
 })
@@ -123,20 +125,28 @@ app.get('/allData', (req,res)=> {
 
 })
 
-
-app.get('/homePage',(req,res)=>{
-    res.sendFile(path.join(__dirname, "client/index.html"));
-})
-
 app.post('/auth',(req,res)=>{
     console.log(req.body)
     let data  = req.body
-    //res.redirect('./homePage')
-        res.sendFile(path.join(__dirname, "client/index.html")).sendStatus(200);
+    //res.json({message: "the data is received"})
+    if (req.body.email && req.body.pass) {
+        res.json( {"auth" : true})
+    }
     
+        //res.sendFile(path.join(__dirname, "client/index.html"));
+    })
 
-    
+app.get('/homePage',(req,res)=>{
+    res.sendFile(path.join(__dirname, "client/pages/auth.html"));
+    //res.sendFile(path.join(__dirname, "client/index.html"));
 })
+
+app.get('/test',(req,res) => {
+    res.sendFile(path.join(__dirname, "client/index.html"));
+    //res.sendFile(path.join(__dirname, "client/index.html"));
+})
+
+
 
 // This is connecting to monogoDB
 mongoose.Promise = global.Promise
