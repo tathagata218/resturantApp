@@ -12,7 +12,7 @@ $scope.auth = function ($event) {
         let currentLocation = window.location.pathname
         if (data) {
             if(data.auth) {
-                window.location.pathname = '/test'
+                window.location.pathname = '/homePage'
             }
         }
         else {

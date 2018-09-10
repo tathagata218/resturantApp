@@ -20,11 +20,10 @@ firebase.initializeApp(firbaseConfig)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('client',options));
-//app.use(express.static('client'))
 
 
 app.get('/',( req,res ) => {
-    res.redirect('/homePage')
+    res.redirect('/authPage')
     //res.sendFile(path.join(__dirname, "client/pages/auth.html"));
     //res.sendFile(path.join(__dirname, "client/index.html"));
     
@@ -136,12 +135,12 @@ app.post('/auth',(req,res)=>{
         //res.sendFile(path.join(__dirname, "client/index.html"));
     })
 
-app.get('/homePage',(req,res)=>{
+app.get('/authPage',(req,res)=>{
     res.sendFile(path.join(__dirname, "client/pages/auth.html"));
     //res.sendFile(path.join(__dirname, "client/index.html"));
 })
 
-app.get('/test',(req,res) => {
+app.get('/homePage',(req,res) => {
     res.sendFile(path.join(__dirname, "client/index.html"));
     //res.sendFile(path.join(__dirname, "client/index.html"));
 })
