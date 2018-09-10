@@ -126,28 +126,13 @@ app.get('/allData', (req,res)=> {
 
 app.post('/auth',(req,res)=>{
     console.log(req.body)
-    let data  = req.body
-    //res.json({message: "the data is received"})
-    if (req.body.email && req.body.pass) {
-        let email = req.body.email
-        let pass = req.body.pass
-        firebase.auth().signInWithEmailAndPassword(email,pass).catch((err)=>{
-            if(err){
-            firebase.auth().createUserWithEmailAndPassword(email,pass).catch((err)=>{
-                if (err) {
-                    res.json({"auth" : false, error : err})
-                }
-                else {
-                    res.json( {"auth" : true})    
-                }
-            })
-            }
-            else {
-                res.json( {"auth" : true})        
-            }
-        })
-        //res.json( {"auth" : true})
+    if(req.body.auth){
+        res.json({config : firbaseConfig})
     }
+    else {
+        res.json({config : null})
+    }
+   
     
         //res.sendFile(path.join(__dirname, "client/index.html"));
     })
