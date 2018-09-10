@@ -129,7 +129,24 @@ app.post('/auth',(req,res)=>{
     let data  = req.body
     //res.json({message: "the data is received"})
     if (req.body.email && req.body.pass) {
-        res.json( {"auth" : true})
+        let email = req.body.email
+        let pass = req.body.pass
+        firebase.auth().signInWithEmailAndPassword(email,pass).catch((err)=>{
+            if(err){
+            firebase.auth().createUserWithEmailAndPassword(email,pass).catch((err)=>{
+                if (err) {
+                    res.json({"auth" : false, error : err})
+                }
+                else {
+                    res.json( {"auth" : true})    
+                }
+            })
+            }
+            else {
+                res.json( {"auth" : true})        
+            }
+        })
+        //res.json( {"auth" : true})
     }
     
         //res.sendFile(path.join(__dirname, "client/index.html"));
