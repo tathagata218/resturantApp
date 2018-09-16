@@ -21,11 +21,14 @@ $scope.auth = function ($event) {
                             if(err){
                                 console.log(err)
                             }
+                            else{
+                                window.location.pathname = '/homePage'
+                            }
                         })
                     }
                     else {
                         console.log('You have logged in')
-                        window.location.pathname = '/homePage'
+                        
                     }
                 })
                 
