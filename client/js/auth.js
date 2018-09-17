@@ -11,29 +11,29 @@ $scope.auth = function ($event) {
     }
     $http.post('/auth',loginData).success((data)=>{
         let currentLocation = window.location.pathname
-        if (data) {
-            if(data.config) {
+        if(data.config) {
                 firebase.initializeApp(data.config);
                 firebase.auth().signInWithEmailAndPassword(email, pass).catch((err)=>{
                     if(err) {
                         console.log(err)
-                        firebase.auth().createUserWithEmailAndPassword(email,pass).catch((err)=>{
-                            if(err){
-                                console.log(err)
-                            }
-                            else{
-                                window.location.pathname = '/homePage'
-                            }
-                        })
+                        
                     }
                     else {
                         console.log('You have logged in')
+                        firebase.auth().onAuthStateChanged(function(user) {
+                            if (user) {
+                                console.log(user)
+                              // User is signed in.
+                            } else {
+                                 console.log("Some Thing Went Wrong")   
+                            }
+                          });
                         
                     }
                 })
                 
             }
-        }
+        
         else {
             window.location.pathname = window.location.pathname
         } 
