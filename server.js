@@ -9,11 +9,9 @@ const mongoose = require('mongoose')
 const data = [];
 const restData = require('./model/restData')
 const firebase = require('firebase')
-//const firbaseui = require('firebaseui')
 const firbaseConfig = require('./keys/config')
 const options = {index : false}
 
-firebase.initializeApp(firbaseConfig)
 
 
 
