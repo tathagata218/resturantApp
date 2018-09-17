@@ -43,6 +43,44 @@ $scope.auth = function ($event) {
     })
 }
 
+$scope.newUser = function ($event) {
+    let newUserData = {
+        firstName : $scope.firstName,
+        lastName : $scope.lastName,
+        email : $scope.newEmail
+    }
+    let firbaseData = {
+        email : $scope.newEmail,
+        password : $scope.newPass
+    }
+
+    let loginData = {
+        auth : true
+    }
+
+    $http.post('/auth',loginData).success((data)=>{
+        if(data.config) {
+            firebase.initializeApp(data.config);
+            firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(firbaseData.email,firbaseData.password).catch((err)=>{
+                if(err){
+                    console.log(err)
+                }
+                else {
+                    firebase.auth().onAuthStateChanged(function(user) {
+                        if (user) {
+                            console.log(user)
+                          // User is signed in.
+                        } else {
+                             console.log("Some Thing Went Wrong")   
+                        }
+                      });
+                }
+            })
+        }
+    })
+    
+}
+
 });
 
 

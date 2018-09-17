@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Authentication Page</title>
+    <title>Resturant App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -41,7 +41,8 @@ body {
     font-family: 'Merriweather', serif;
 }
 .allcontent{
-    padding-left : 10px
+    padding-left : 10px;
+    padding-right: 10px
 }
 nav {
     font-family: 'Merriweather', serif;
@@ -66,10 +67,11 @@ nav {
                                         <br>
                                         <label for="emal">Email : </label>
                                         <input ng-model="emailText" class='form-control' type="email" name="emailInput" id="emailText">
+                                        <small id="emailError"></small>
                                         <br>
                                         <label for="password">Password : </label>
                                         <input ng-model="passText" class='form-control' type="password" name="passInput" id="passText">
-                                        
+                                        <small id="passError"></small>
                                         <br>
                                         <button ng-click="auth($event)" class ="btn btn-primary loginCreatBtn" id='loginBut'>Login</button>
                                     </div>
