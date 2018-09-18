@@ -159,6 +159,8 @@ phonecatApp.controller('resturantApp', function resturantApp($scope,$http) {
     console.log($event.currentTarget.attributes)
    }
 
-
+   $scope.logoutFunc = function () {
+    firebase.auth().signOut()
+   }
   
   });

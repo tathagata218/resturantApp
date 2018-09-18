@@ -11,6 +11,7 @@ const restData = require('./model/restData')
 const firebase = require('firebase')
 const firbaseConfig = require('./keys/config')
 const options = {index : false}
+const userInfo = require('./model/userInfo')
 
 
 
