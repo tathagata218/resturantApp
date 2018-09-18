@@ -12,18 +12,17 @@ $scope.auth = function ($event) {
     let loginData = {
         auth : true
     }
-    console.log(email,pass)
+    
     $http.post('/auth',loginData).success((data)=>{
         
         let currentLocation = window.location.pathname
         if(data.config) {
-            
-            if(!firebase.apps.length){
-                console.log(firebase.app.length)
+                    
+                console.log(firebase.app())
                 firebase.initializeApp(data.config);
                 firbaseConfig = data.config
-            }
-                            
+                
+                                            
                 firebase.auth().signInWithEmailAndPassword(email, pass).catch((err)=>{
                     if(err) {
                         console.log(err)
@@ -46,6 +45,7 @@ $scope.auth = function ($event) {
                     }
                 })
                 
+            window.location.pathname = '/homePage'
             }
         
         else {
