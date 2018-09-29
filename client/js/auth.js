@@ -30,7 +30,7 @@ $scope.auth = function ($event) {
                 firebase.auth().signInWithEmailAndPassword(email, pass).catch((err)=>{
                     if(err) {
                         console.log(err.massage)
-                        
+
                         
                     }
                     else {
@@ -82,7 +82,10 @@ $scope.newUser = function ($event) {
     }
 
     $http.post('/auth',loginData).success((data)=>{
-        if(data.config) {           
+        if(data.config) {
+            if(firebase.apps.length === 0) {
+                firebase.initializeApp(data.config)
+            }           
             
             firebase.auth().createUserWithEmailAndPassword(firbaseData.email,firbaseData.password).catch((err)=>{
                 if(err){
